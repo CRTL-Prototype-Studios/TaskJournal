@@ -24,7 +24,7 @@ import type { MenuOption } from 'naive-ui'
           </NLayoutHeader>
           <div class="w-full relative">
             <NLayout>
-              <NGradientText class="text-9xl">
+              <NGradientText>
                 sadsada
               </NGradientText>
             </NLayout>
