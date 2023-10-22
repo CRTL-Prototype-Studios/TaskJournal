@@ -19,12 +19,12 @@ import type { MenuOption } from 'naive-ui'
     <NConfigProvider>
       <NMessageProvider>
         <NLoadingBarProvider>
-          <NLayoutHeader bordered class="h-16 flex">
+          <NLayoutHeader bordered class="flex">
             <TopViewGuide/>
           </NLayoutHeader>
           <div class="w-full relative">
             <NLayout>
-              <NGradientText>
+              <NGradientText class="text-9xl">
                 sadsada
               </NGradientText>
             </NLayout>
@@ -35,6 +35,6 @@ import type { MenuOption } from 'naive-ui'
   </NDialogProvider>
 </template>
 
-<style scoped>
+<style>
 
 </style>

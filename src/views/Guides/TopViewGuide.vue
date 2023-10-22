@@ -49,23 +49,23 @@ function dropdownHandler(key: string) {
 </script>
 
 <template>
-    <NSpace class="flex items-center justify-between px-8">
-        <div class="flex items-center cursor-pointer container m-auto">
+    <div class="flex items-center justify-between px-8">
+        <div class="flex items-center cursor-pointer">
             <img src="@/assets/images/TaskJournal%20Icon.svg" width="40" height="40"/>
             <NGradientText>TaskJournal</NGradientText>
         </div>
-        <div class="flex m-auto">
+        <div class="flex">
             <NMenu v-model:value="activeKey" mode="horizontal" :options="menuOptions"/>
         </div>
-        <div v-if="!isLoggedIn" class="flex gap-3">
+        <div v-if="!isLoggedIn">
             <NButton type="primary">Get Started</NButton>
         </div>
-        <div v-else class="flex gap-3 m-auto">
+        <div v-else>
             <NDropdown placement="bottom-end" show-arrow :options="dropdownOptions" @select="dropdownHandler">
                 <NAvatar/>
             </NDropdown>
         </div>
-    </NSpace>
+    </div>
 </template>
 
 <style scoped>
