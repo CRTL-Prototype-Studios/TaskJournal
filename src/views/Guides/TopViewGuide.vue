@@ -13,6 +13,7 @@ import {h, ref} from 'vue'
 import type {Component} from "vue";
 import {NIcon} from 'naive-ui'
 import type {MenuOption} from 'naive-ui'
+import {PersonCircle as UserIcon, Pencil as EditIcon, LogOutOutline as LogoutIcon} from '@vicons/ionicons5'
 
 function renderIcon(icon: Component) {
     return () => h(NIcon, null, {default: () => h(icon)})
@@ -20,8 +21,8 @@ function renderIcon(icon: Component) {
 
 const menuOptions: MenuOption[] = [
     {
-        label: 'Home',
-        key: 'home'
+        label: 'Dashboard',
+        key: 'dashboard'
     },
     {
         label: 'Tools',
@@ -39,8 +40,8 @@ const menuOptions: MenuOption[] = [
 
 const activeKey = ref(), isLoggedIn = true;
 const dropdownOptions: DropdownOption[] = [
-    {label: "Account", key: "auth.principal"},
-    {label: "Sign out", key: "auth.sign-out"},
+    {label: "Account", key: "auth.principal", icon: renderIcon(UserIcon)},
+    {label: "Sign out", key: "auth.sign-out", icon: renderIcon(LogoutIcon)}
 ];
 
 function dropdownHandler(key: string) {
@@ -57,7 +58,7 @@ function dropdownHandler(key: string) {
         <div class="flex-grow">
             <NMenu v-model:value="activeKey" mode="horizontal" :options="menuOptions"/>
         </div>
-        <div class="flex gap-5 justify-center mx-10">
+        <div class="flex gap-5 justify-center mx-10 justify-items-center">
             <NInput />
             <NTag>CMD + K</NTag>
         </div>
@@ -65,7 +66,7 @@ function dropdownHandler(key: string) {
             <NButton type="primary">Get Started</NButton>
         </div>
         <div v-else class="flex gap-3 mx-5">
-            <NDropdown placement="bottom-end" show-arrow :options="dropdownOptions" @select="dropdownHandler">
+            <NDropdown placement="bottom-end" :options="dropdownOptions" @select="dropdownHandler">
                 <NAvatar/>
             </NDropdown>
         </div>
